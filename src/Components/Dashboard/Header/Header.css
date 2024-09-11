@@ -1,0 +1,365 @@
+.Header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 606;
+  align-items: center;
+  background-color: #ffffff;
+  justify-content: space-between;
+  box-shadow: 0 2px 9px #00000020;
+}
+
+@media (max-width:768px) {
+  .Header {
+    z-index: 404;
+  }
+}
+
+@media print {
+  .Header {
+    display: none;
+  }
+}
+
+.Header .logo {
+  width: 160px;
+  height: 22px;
+}
+
+.Header .navbar {
+  gap: 15px;
+  display: flex;
+  position: relative;
+}
+
+.Header .navbar .customRow,
+.Header .navbar .customRow .customBtn {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.Header .navbar .dropdown button {
+  gap: 10px;
+  height: 35px;
+  display: flex;
+  border: none;
+  font-size: 12px;
+  text-align: start;
+  align-items: center;
+}
+
+.Header .navbar .dropdown button .icon-shop {
+  color: #1772ff;
+  font-size: 26px;
+}
+
+.Header .navbar .dropdown-toggle div {
+  display: flex;
+  flex-direction: column;
+}
+
+.Header .navbar .dropdown .dropdown-menu {
+  width: 170px;
+  top: 40px;
+  padding-inline: 5px;
+}
+
+.Header .navbar .dropdown .dropdown-menu li {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding-inline: 10px;
+}
+
+.Header .navbar .dropdown .dropdown-menu li * {
+  cursor: pointer;
+}
+
+.Header .navbar .dropdown .dropdown-menu li:hover {
+  background-color: #f3f4f6;
+}
+
+.Header .navbar .dropdown .dropdown-menu li a {
+  display: flex;
+  color: #454545;
+
+  &:hover {
+    color: #1772ff;
+  }
+}
+
+.Header .navbar .dropdown .dropdown-menu label {
+  margin-left: 10px;
+}
+
+.Header .navbar .dropdown.lang button {
+  background-color: #dceaff;
+}
+
+.Header .navbar .dropdown.lang img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.Header .navbar .dropdown.lang .dropdown-menu {
+  width: fit-content;
+  top: 50px;
+  left: -50px;
+}
+
+.Header .navbar .dropdown.lang .dropdown-menu li {
+  padding: 3px 5px 5px;
+}
+
+.Header .navbar .dropdown.lang .dropdown-menu span {
+  margin-left: 5px;
+}
+
+.Header .navbar .pos,
+.Header .navbar .menu {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-content: center;
+  border-radius: 7px;
+}
+
+.Header .navbar .pos {
+  color: #ff8a26;
+  background-color: #ffebd8;
+}
+
+.Header .navbar .menu {
+  color: #1772ff;
+  background-color: #f3f8ff;
+}
+
+.Header .navbar .profile button {
+  gap: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+
+.Header .navbar .profile button img {
+  width: 36px;
+  height: 36px;
+  border-radius: 7px;
+}
+
+.Header .navbar .profile button div {
+  display: flex;
+  font-size: 10px;
+  text-align: start;
+  flex-direction: column;
+}
+
+.Header .navbar .profile .dropdown-menu {
+  width: 360px;
+  padding: 10px 0 0;
+}
+
+
+@media (max-width: 425px) {
+  .Header .navbar .profile .dropdown-menu {
+    width: calc(100% - 15px);
+    position: fixed;
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+}
+
+.Header .navbar .profile .dropdown-menu li {
+  height: fit-content;
+  background: #fff !important;
+}
+
+.Header .navbar .profile .dropdown-menu.show {
+  top: 50px;
+  left: calc(100% - 360px);
+}
+
+.Header .navbar .profile .dropdown-menu .group {
+  padding: 0;
+  margin: 0;
+}
+
+.Header .navbar .profile .dropdown-menu .user .image {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  display: flex;
+  padding: 2px;
+  position: relative;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #FF0D63;
+}
+
+.Header .navbar .profile .dropdown-menu .user .image img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.Header .navbar .profile .dropdown-menu .user .image .input-file {
+  position: absolute;
+  left: 50%;
+  color: #fff;
+  bottom: -15px;
+  transform: translateX(-50%);
+}
+
+.Header .navbar .profile .dropdown-menu .user .image .input-file input {
+  display: none;
+}
+
+.Header .navbar .profile .dropdown-menu .user .image .input-file label {
+  width: 45px;
+  height: 45px;
+  margin: 0;
+  display: block;
+  display: grid;
+  font-size: 20px;
+  border-radius: 50%;
+  place-content: center;
+  border: 2px solid #ffffff;
+  background-color: #1f1f39;
+}
+
+.Header .navbar .profile .dropdown-menu .user ul {
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.Header .navbar .profile .dropdown-menu .user ul li {
+  opacity: 0.99;
+  color: #000000;
+  display: block;
+  font-size: 12px;
+  text-align: center;
+}
+
+.Header .navbar .profile .dropdown-menu li:hover {
+  background-color: transparent;
+}
+
+.Header .navbar .profile .dropdown-menu .group li {
+  padding: 0;
+}
+
+.Header .navbar .profile .dropdown-menu .group li.active {
+  background-color: transparent;
+}
+
+.Header .navbar .profile .dropdown-menu .group li:not(:last-child) {
+  border-bottom: 1px solid #00000020;
+}
+
+.Header .navbar .profile .dropdown-menu .group li a {
+  opacity: 0.99;
+  width: 100%;
+  padding: 10px;
+  color: #000000;
+  text-align: start;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.Header .navbar .profile .dropdown-menu .group li:hover a,
+.Header .navbar .profile .dropdown-menu .group li.active a {
+  color: #1772ff;
+}
+
+.Header .navbar .profile .dropdown-menu .group li a span {
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .Header .navbar .customRow {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    display: flex;
+    padding-inline: 20px;
+    background-color: #ffffff;
+    justify-content: space-between;
+  }
+
+  .Header .navbar .profile .dropdown-toggle {
+    padding-inline: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .Header .navbar .dropdown-toggle div {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.profile-container {
+  position: relative;
+  width: 150px;
+  /* Adjust as needed */
+  text-align: center;
+}
+
+.profile-picture {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.edit-icon-container {
+  position: absolute;
+  bottom: 10px;
+  /* Adjust as needed */
+  right: 10px;
+  /* Adjust as needed */
+  background-color: #232C64;
+  /* Background color of the circle */
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-input {
+  display: none;
+}
+
+.edit-icon {
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+}

@@ -1,0 +1,217 @@
+#AddTable {
+  width: 100%;
+  height: 100vh;
+  min-height: 100svh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 505;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+#AddTable::before {
+  content: '';
+  width: 100%;
+  height: 100svh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 504;
+  background-color: rgba(0, 0, 0, .6);
+}
+
+#AddTable.visible {
+  opacity: 1;
+}
+
+#AddTable .modal-container {
+  position: fixed;
+  top: 0;
+  right: -600px;
+  width: 600px;
+  height: 100svh;
+  z-index: 505;
+  margin-top: 70px;
+  background-color: #fff;
+  transition: right 0.2s;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#AddTable.Categories .modal-container {
+  right: -400px;
+  width: 400px;
+}
+
+@media (max-width: 768px) {
+  #AddTable .modal-container {
+    width: 100%;
+    right: -100%;
+    margin-top: 0;
+  }
+}
+
+#AddTable.visible .modal-container {
+  right: 0;
+}
+
+#AddTable .modal-container .breadcrumb {
+  margin: 0;
+  display: flex;
+  padding: 10px;
+  padding-right: 20px;
+  align-items: center;
+  background-color: #FFF;
+  border-bottom: 1px solid #ebebeb;
+  justify-content: space-between;
+}
+
+#AddTable .modal-container .breadcrumb i {
+  width: fit-content;
+  height: fit-content;
+}
+
+#AddTable .modal-container .modal-content form {
+  height: calc(100svh - (70px + 60px));
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+#AddTable .modal-container .modal-content form::-webkit-scrollbar {
+  width: 3px;
+}
+
+#AddTable .modal-container .modal-content form::-webkit-scrollbar-thumb {
+  background-color: #1772FF;
+}
+
+#AddTable .modal-container input[type="radio"] {
+  width: 17px;
+  min-width: 17px;
+  height: 17px;
+  min-height: 17px;
+  display: grid;
+  appearance: none;
+  position: relative;
+  border-radius: 50%;
+  align-items: center;
+  place-content: center;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+}
+
+#AddTable .modal-container input[type="radio"]:checked {
+  border-radius: 50%;
+  background-color: #1772FF;
+}
+
+#AddTable .modal-container input[type="radio"]:checked::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+}
+
+#AddTable .modal-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeSidebar {
+  color: red;
+  font-size: 22px;
+}
+
+.closeSidebar,
+.close-button {
+  font-size: 24px;
+  background-color: transparent;
+}
+
+.row .col {
+  text-wrap: nowrap;
+}
+
+label,
+span {
+  font-size: 12px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+}
+
+#containerPattern {
+  padding: 0;
+  margin: 0;
+}
+
+#containerPattern .group {
+  border-radius: 7px;
+  margin-bottom: 20px;
+  position: relative;
+  padding: 5px 0 0 20px;
+  background-color: #efefef;
+}
+
+#containerPattern .group .removeGroup span {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 505;
+  place-content: center;
+  font-weight: bolder;
+  position: absolute;
+  top: 0;
+  right: 0;
+  user-select: none;
+}
+
+#containerPattern .group .removeGroup span:active {
+  transform: scale(0.95);
+}
+
+.newColumn {
+  gap: 15px;
+  display: flex;
+  margin-top: 10px;
+  align-items: end;
+}
+
+.newColumn .addNewColumn {
+  padding: 7px;
+  display: flex;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #ffffff;
+  border-radius: 7px;
+  align-items: center;
+  text-transform: capitalize;
+  background-color: #1772FF;
+}
+
+.newColumn .addNewColumn:active {
+  background-color: #1059c6;
+}
+
+.newColumn .addNewColumn svg {
+  font-size: 20px;
+}
+
+.newColumn .errorMaxMan {
+  color: red;
+  font-size: 14px;
+  text-transform: capitalize !important;
+}

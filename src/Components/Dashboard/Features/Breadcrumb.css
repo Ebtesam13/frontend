@@ -1,0 +1,42 @@
+.Breadcrumb ul {
+    display: flex;
+    align-items: center;
+}
+
+.Breadcrumb ul li {
+    color: #838282;
+}
+
+.Breadcrumb ul * {
+    font-size: 22px;
+}
+
+.Breadcrumb ul a {
+    color: #454545;
+}
+
+.Breadcrumb ul a:hover {
+    color: #1772ff;
+}
+
+.Breadcrumb span {
+    margin-inline: 5px;
+}
+
+@media (max-width: 768px) {
+    .Breadcrumb ul * {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .breadcrumb ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .Breadcrumb ul * {
+        font-size: 12px;
+    }
+}

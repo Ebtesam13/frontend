@@ -1,0 +1,247 @@
+.Dashboard {
+    text-transform: capitalize;
+}
+
+.Container {
+    width: 100%;
+    transition: .3s;
+    padding-top: 25px;
+    padding-left: 270px;
+    position: relative;
+    height: calc(100svh - 70px);
+}
+
+.Container.full-width {
+    padding-left: 0;
+}
+
+.Dashboard .Content {
+    flex-grow: 1;
+    padding: 15px;
+    margin-top: 45px;
+}
+
+@media (max-width: 1024px) {
+
+    .Container,
+    .Container.full-width {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .Dashboard .Content {
+        margin-top: 95px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .Show {
+        padding: 0 !important;
+    }
+}
+
+.Dashboard .reminder {
+    background-color: #FEE2E2;
+}
+
+.Dashboard .reminder p b,
+.Dashboard .welcome-user h3 {
+    color: #1772FF;
+}
+
+.Dashboard .datePicker {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.Dashboard .datePicker .picker {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.Dashboard .datePicker input.picker {
+    width: 105px;
+}
+
+.Dashboard .react-datepicker-popper {
+    position: absolute;
+    top: 70px !important;
+    left: calc(100% - 260px) !important;
+    transform: translate(0, 0) !important;
+}
+
+.Dashboard .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle {
+    left: calc(100% - 60px) !important;
+}
+
+.Dashboard .totalCarts {
+    --bg1: #FF4F99;
+    --bg2: #8262FE;
+    --bg3: #567DFF;
+    --bg4: #A953FF;
+    margin-bottom: 10px;
+}
+
+.Dashboard .totalCarts .col:first-child>div {
+    background-color: var(--bg1);
+}
+
+.Dashboard .totalCarts .col:nth-child(2)>div {
+    background-color: var(--bg2);
+}
+
+.Dashboard .totalCarts .col:nth-child(3)>div {
+    background-color: var(--bg3);
+}
+
+.Dashboard .totalCarts .col:last-child>div {
+    background-color: var(--bg4);
+}
+
+.Dashboard .totalCarts .col div .icon {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    border-radius: 50%;
+    place-content: center;
+    background-color: #ffffff;
+}
+
+.Dashboard .totalCarts .col div .icon svg {
+    font-size: 24px;
+}
+
+.Dashboard .totalCarts .col:first-child div .icon svg {
+    color: var(--bg1);
+}
+
+.Dashboard .totalCarts .col:nth-child(2) div .icon svg {
+    color: var(--bg2);
+}
+
+.Dashboard .totalCarts .col:nth-child(3) div .icon svg {
+    color: var(--bg3);
+}
+
+.Dashboard .totalCarts .col:last-child div .icon svg {
+    color: var(--bg4);
+}
+
+.Dashboard .totalCarts .col div h6 {
+    margin: 0;
+}
+
+.Dashboard .chartParent {
+    background-color: #ffffff;
+}
+
+.Dashboard .chartParent .section {
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.Dashboard .chartParent .section-head {
+    gap: 10px;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #dee2e6;
+    position: relative;
+}
+
+.Dashboard .chartParent .col-12:first-child .card-head,
+.Dashboard .chartParent .col-12:nth-child(2) .card-head {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+
+    .Dashboard .chartParent .section-head,
+    .Dashboard .chartParent .col-12:first-child .card-head,
+    .Dashboard .chartParent .col-12:nth-child(2) .card-head {
+        flex-direction: column-reverse;
+    }
+}
+
+.Dashboard .chartParent .section-head .picker {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.Dashboard .chartParent .section-head input.picker {
+    width: 105px;
+}
+
+.Dashboard .chartParent .section-body {
+    padding: 15px;
+}
+
+.Dashboard .chartParent .section-body ul {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.Dashboard .chartParent .section-body .cards {
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.Dashboard .chartParent .section-body .cards .card {
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #00000010;
+}
+
+.Dashboard .chartParent .section-body .cards .card .card-title {
+    padding: 5px 0 0 5px;
+}
+
+.Dashboard .chartParent .section-body .cards.popular {
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.Dashboard .chartParent .section-body .cards.popular .card {
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Dashboard .chartParent .section-body .cards.popular .card .card-img {
+    width: 90px;
+    height: 90px;
+}
+
+.Dashboard .chartParent .section-body .cards.popular .card .card-text {
+    height: 100%;
+    display: flex;
+    padding-block: 5px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Dashboard .chartParent .section-body .cards.popular .card .card-text p {
+    margin: 0;
+}
+
+.Dashboard .chartParent .section-chart {
+    width: 100%;
+    height: 400px;
+    min-height: 400px;
+    padding-right: 30px;
+}

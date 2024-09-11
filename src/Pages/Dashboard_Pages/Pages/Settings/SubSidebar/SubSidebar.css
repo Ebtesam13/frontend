@@ -1,0 +1,64 @@
+.SubSidebar {
+    min-width: 270px;
+    padding: 15px;
+    border-radius: 7px;
+    background-color: #ffffff;
+}
+
+.SubSidebar .toggleSubRoutes {
+    display: none;
+}
+
+.SubSidebar .toggleSubRoutes button {
+    width: 100%;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+    .SubSidebar {
+        padding: 0;
+    }
+
+    .SubSidebar .toggleSubRoutes {
+        display: block;
+    }
+
+    .SubSidebar .subRoutes {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .SubSidebar .subRoutes.open {
+        max-height: 500px;
+    }
+}
+
+.SubSidebar li:hover {
+    background-color: #F3F8FF !important;
+}
+
+.SubSidebar li.active {
+    background-color: #F3F8FF !important;
+
+    & a {
+        color: #1772FF;
+    }
+}
+
+.SubSidebar li a {
+    width: 100%;
+    display: block;
+    color: #737374;
+    border-radius: 7px;
+    padding: 7px 10px 10px;
+}
+
+.SubSidebar li a svg {
+    margin-right: 10px;
+}
+
+.SubSidebar li a span {
+    font-size: 14px;
+}

@@ -1,0 +1,23 @@
+.formModal {
+    color: #878682;
+    border-radius: 7px;
+}
+
+.formModal .title {
+    padding: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid #87868230;
+}
+
+.formModal .row {
+    padding: 15px;
+}
+
+.formModal .row label {
+    font-weight: 500;
+}
+
+.formModal .row button {
+    display: flex;
+    align-items: center;
+}

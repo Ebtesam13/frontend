@@ -1,0 +1,64 @@
+.cart-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    max-width: 50px;
+    margin-right: 10px;
+}
+
+.cart-details {
+    flex-grow: 1;
+}
+
+.empty-cart{
+    translate:100px;
+    margin-bottom: 30px;
+}
+
+.quant{
+    translate: 5px;
+    z-index: 1;
+}
+
+.border{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+.filter-button{
+    height: 150px;
+    position: relative;
+      overflow: hidden;
+      transition: height 0.3s ease;
+  
+}
+.filter-button:hover .card-content {
+    max-height: 1000px;
+}
+.filter-button:hover::after{
+    opacity: 0;
+}
+.filter-button:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px; /* Height of the fade effect */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    transition: opacity 0.3s ease;
+  }
+.card-content {
+    max-height: 50px; /* Adjust to your initial height */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }

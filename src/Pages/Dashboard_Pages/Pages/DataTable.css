@@ -1,0 +1,259 @@
+.DataTable .tableItems img {
+    width: 70px !important;
+    height: 70px !important;
+    border-radius: 7px !important;
+}
+
+.Information>div label {
+    min-width: 90px;
+}
+
+.DataTable .tableItems {
+    overflow: auto !important;
+}
+
+.DataTable .tableItems::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+.DataTable .tableItems::-webkit-scrollbar-thumb {
+    background-color: #1772FF;
+}
+
+@media (max-width: 768px) {
+
+    .Information>div {
+        flex-direction: column;
+    }
+
+    .Information>div>div {
+        min-width: 100% !important;
+    }
+}
+
+.DataTable .headerTable {
+    padding: 20px;
+    color: #454545;
+    margin-bottom: 2px;
+    background-color: #fff;
+}
+
+.DataTable .headerTable label {
+    text-transform: uppercase;
+}
+
+.DataTable .headerTable .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 640px) {
+    .DataTable .headerTable .head {
+        gap: 10px;
+        flex-direction: column;
+    }
+}
+
+.DataTable .titlePage {
+    opacity: 0.7;
+    font-size: 18px;
+}
+
+:where(.css-dev-only-do-not-override-m4timi).ant-btn-default {
+    color: #1772ff;
+    border-color: #1772ff;
+}
+
+@media (max-width: 500px) {
+    .DataTable .headerTable .actions {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+.DataTable .headerTable .actions .dropListPrint {
+    position: relative;
+}
+
+.DataTable .headerTable .actions .dropListPrint .listPrint {
+    width: 100%;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    z-index: 100;
+    display: none;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid #eaeaea;
+    background-color: #ffffff;
+}
+
+.DataTable .headerTable .actions .dropListPrint .listPrint ul {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.DataTable .headerTable .actions .dropListPrint .listPrint li button {
+    width: 100%;
+    color: #454545;
+    border: 1px solid #eaeaea;
+}
+
+.DataTable .headerTable .actions .dropListPrint .listPrint li button:hover {
+    color: #1772ff;
+    background-color: #F3F8FF;
+}
+
+.DataTable .headerTable .actions .dropListPrint .listPrint.show {
+    display: block;
+}
+
+.DataTable .headerTable .actions button * {
+    gap: 5px;
+    padding: 0;
+}
+
+.DataTable .headerTable .actions button {
+    padding-inline: 10px;
+    border: 1px solid #eaeaea !important;
+
+    &:hover {
+        border: 1px solid #1772ff !important;
+    }
+}
+
+.DataTable .headerTable .actions .CSVLink {
+    gap: 5px;
+    display: flex;
+    opacity: 0.9;
+    color: #454545;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eaeaea;
+
+    &:hover {
+        color: #1772ff;
+        background-color: #F3F8FF;
+        border: 1px solid #1772ff;
+    }
+}
+
+table * {
+    border-radius: 0 !important;
+}
+
+table,
+tr,
+th,
+td {
+    text-align: start !important;
+}
+
+table thead tr th {
+    padding-block: 10px !important;
+}
+
+.ant-table th,
+.ant-table td,
+.ant-table-cell th,
+.ant-table-cell td {
+    text-wrap: nowrap !important;
+    white-space: nowrap !important;
+}
+
+@media (max-width: 500px) {
+    table {
+        overflow-x: auto;
+    }
+}
+
+/*! show item page */
+.ShowItem {
+    padding: 15px;
+    border-radius: 7px;
+    background-color: #ffffff;
+    border: 1px solid #1772FF;
+}
+
+.ShowItem .ant-tabs-nav-list .ant-tabs-tab {
+    padding-inline: 15px;
+}
+
+.ShowItem span {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.ShowItem span svg {
+    font-size: 18px;
+}
+
+.ShowItem p {
+    padding-block: 10px;
+}
+
+.dropStatus {
+    width: fit-content;
+    position: relative;
+
+    &>span {
+        border-radius: 3px;
+        cursor: pointer;
+        margin: auto !important;
+    }
+
+    & .listStatus {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 50%;
+        padding: 7px;
+        z-index: 505;
+        transition: 0.2s;
+        color: #1772FF;
+        text-wrap: nowrap;
+        background-color: #fff;
+        transform: translateX(-50%);
+        border: 1px solid #eaeaea;
+        border-radius: 3px !important;
+        opacity: 0;
+        visibility: hidden;
+
+        &.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        & span {
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100% !important;
+            display: block !important;
+            text-align: center !important;
+
+            &.disable {
+                opacity: .5;
+                cursor: default;
+                pointer-events: none;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+.customQrCode {
+    width: 70px !important;
+    height: 70px !important;
+}
+
+.customQrCode * {
+    width: 100% !important;
+    height: 100% !important;
+}

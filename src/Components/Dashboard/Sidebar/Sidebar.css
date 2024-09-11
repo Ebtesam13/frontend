@@ -1,0 +1,100 @@
+.Sidebar {
+  width: 270px;
+  padding: 15px;
+  overflow-y: auto;
+  transition: transform 0.3s;
+  height: calc(100svh - 70px);
+  background-color: #ffffff;
+  border: 1px solid #00000020;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  z-index: 505;
+  transform: translateX(-270px);
+}
+
+.Sidebar.show {
+  transform: translateX(0);
+}
+
+.Sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.Sidebar:hover::-webkit-scrollbar-thumb {
+  background-color: #1772ff;
+}
+
+.Sidebar .closeSidebar {
+  color: red;
+  display: none;
+  font-size: 24px;
+}
+
+@media (max-width: 1024px) {
+  .Sidebar {
+    height: 100svh;
+    top: 0;
+    transform: translateX(0);
+    box-shadow: 2px 0 9px #00000020;
+  }
+
+  .Sidebar.show {
+    transform: translateX(-270px);
+  }
+
+  .Sidebar .closeSidebar {
+    display: block;
+  }
+}
+
+.Sidebar .closeSidebar {
+  height: 50px;
+  font-size: 18px;
+  text-align: start;
+}
+
+.Sidebar * {
+  opacity: 0.9;
+  font-weight: 500;
+  border: none;
+}
+
+.Sidebar * a,
+.Sidebar * a:hover {
+  width: 100%;
+  color: #000;
+  background-color: transparent;
+}
+
+.Sidebar .group label {
+  opacity: 0.5;
+  display: block;
+  padding: 10px 0;
+  margin: 0;
+  text-align: start;
+  text-transform: uppercase;
+}
+
+.Sidebar .group ul li a {
+  padding: 10px 15px;
+}
+
+.Sidebar .group ul li a span {
+  font-size: 16px;
+}
+
+.Sidebar .group ul li a {
+  gap: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.Sidebar .group ul li.active a {
+  color: #1772ff;
+  background-color: #deecff;
+}
+
+.Sidebar .group ul li:not(.active) a:hover {
+  background-color: #ebebed;
+}

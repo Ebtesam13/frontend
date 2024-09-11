@@ -1,0 +1,52 @@
+.Show .row {
+    padding: 15px;
+    background-color: #ffffff;
+}
+
+.Show .row .image {
+    padding: 0;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 7px;
+}
+
+.Show .row .details {
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Show .row .details p {
+    width: fit-content;
+    display: block;
+    padding: 3px 5px;
+    color: #2078FF;
+    font-weight: bold;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background-color: #0d6efd40;
+}
+
+.Show .row .details input {
+    display: none;
+}
+
+
+.Show .ant-tabs-nav-list .ant-tabs-tab {
+    padding-inline: 15px;
+}
+
+.Show span {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.Show span svg {
+    font-size: 18px;
+}
+
+.Show p {
+    padding-block: 10px;
+}

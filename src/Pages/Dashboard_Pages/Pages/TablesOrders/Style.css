@@ -1,0 +1,270 @@
+.Show {
+    padding: 0;
+}
+
+.Show .head {
+    gap: 15px;
+    display: flex;
+    padding: 15px;
+    align-items: end;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    justify-content: space-between;
+}
+
+.Show .head .details>div,
+.Show .head .details>h4 {
+    gap: 10px;
+    display: flex;
+    color: #747475;
+    padding-block: 3px;
+    align-items: center;
+}
+
+.Show .head .details .id b {
+    color: #323232;
+}
+
+.Show .head .details>h4 span {
+    width: fit-content;
+    display: block;
+    padding: 5px 10px;
+    color: var(--c);
+    font-weight: bold;
+    border-radius: 25px;
+    background-color: var(--bg);
+}
+
+.Show .head .options {
+    gap: 15px;
+    height: 100%;
+    display: flex;
+    align-items: end;
+}
+
+.Show .head .options button,
+.Show .head .options select {
+    height: 35px;
+}
+
+@media (max-width: 992px) {
+    .Show .head .options {
+        flex-direction: column;
+    }
+
+    .Show .head .options button,
+    .Show .head .options select {
+        width: 170px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Show .head {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .Show .head .options {
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .Show .head .options button,
+    .Show .head .options select {
+        width: calc((100% - 50px) / 4);
+    }
+}
+
+@media (max-width: 670px) {
+
+    .Show .head .options button,
+    .Show .head .options select {
+        width: calc((100% - 20px) / 2);
+    }
+}
+
+@media (max-width: 425px) {
+
+    .Show .head .options button,
+    .Show .head .options select {
+        width: 100%;
+    }
+}
+
+
+label {
+    margin: 0;
+}
+
+.Show button {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.Show .body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Show .body .sections {
+    height: fit-content;
+    border-radius: 7px;
+    width: calc(50% - 10px);
+}
+
+.Show .body .sections-right {
+    margin-left: 10px;
+}
+
+.Show .body .sections-left {
+    margin-right: 10px;
+    background-color: #ffffff;
+}
+
+.Show .body .sections-left,
+.Show .body .sections-right .section {
+    box-shadow: 0px 1px 3px #00000010;
+}
+
+.Show .body .sections .section {
+    margin-bottom: 15px;
+    border-radius: 7PX;
+    background-color: #ffffff;
+}
+
+
+@media (max-width: 768px) {
+    .Show .body {
+        flex-direction: column;
+    }
+
+    .Show .body .sections {
+        width: 100%;
+    }
+
+    .Show .body .sections-right,
+    .Show .body .sections-left {
+        margin: 0 0 15PX 0;
+    }
+}
+
+.Show .body .sections>.title,
+.Show .body .sections .section>.title,
+.Show .body .sections .section>.details {
+    padding: 15px;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Show .body .sections>.title,
+.Show .body .sections .section>.title {
+    border-bottom: 1px solid #00000010;
+}
+
+.Show .body .sections .section {
+    padding-inline: 15px;
+}
+
+.Show .body .sections .section .cards .card {
+    gap: 15px;
+    border: none;
+    display: flex;
+    position: relative;
+    padding-block: 15px;
+    flex-direction: row;
+}
+
+.Show .body .sections .section .cards .card::after {
+    content: attr(data-id);
+    width: 30px;
+    height: 30px;
+    display: grid;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-radius: 50%;
+    place-content: center;
+    border: 1px solid #ffffff;
+    background-color: #474747;
+    transform: translate(-15px, -50%);
+}
+
+.Show .body .sections .section .cards .card:not(:last-child) {
+    border-bottom: 1px solid #00000020;
+}
+
+.Show .body .sections .section .cards .card .card-img {
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 7px;
+}
+
+.Show .body .sections .section .cards .card .card-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.Show .body .sections .section .cards .card .card-text p {
+    gap: 5px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.Show .row {
+    padding: 15px;
+    background-color: #ffffff;
+}
+
+.Show .row .image {
+    padding: 0;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 7px;
+}
+
+.Show .row .details {
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Show .row .details p {
+    width: fit-content;
+    display: block;
+    padding: 3px 5px;
+    color: #2078FF;
+    font-weight: bold;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background-color: #0d6efd40;
+}
+
+.Show .row .details input {
+    display: none;
+}
+
+.Show .ant-tabs-nav-list .ant-tabs-tab {
+    padding-inline: 15px;
+}
+
+.Show span {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.Show span svg {
+    font-size: 18px;
+}
+
+.Show p {
+    padding-block: 10px;
+}

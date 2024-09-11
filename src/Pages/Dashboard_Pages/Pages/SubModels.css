@@ -1,0 +1,105 @@
+.SubModel.Image {
+    gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.SubModel.Image .preview {
+    width: 270px;
+    height: auto;
+}
+
+.SubModel.Image .preview img {
+    width: 100%;
+    height: 100%;
+}
+
+.SubModel.Image .uploadImage {
+    display: flex;
+    gap: 15px;
+}
+
+.SubModel.Image .uploadImage>.col {
+    padding: 0;
+}
+
+@media (max-width: 992px) {
+    .SubModel.Image {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 510px) {
+    .SubModel.Image {
+        justify-content: center;
+    }
+
+    .SubModel.Image .preview {
+        width: 100%;
+    }
+}
+
+.SubModel.Image input[type='file'] {
+    display: none;
+}
+
+.SubModel.Image label,
+.SubModel.Image button {
+    height: 40px;
+}
+
+@media (max-width: 450px) {
+    .SubModel.Image button {
+        width: 100%;
+    }
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+input[type="radio"] {
+    width: 17px;
+    min-width: 17px;
+    height: 17px;
+    min-height: 17px;
+    display: grid;
+    appearance: none;
+    position: relative;
+    border-radius: 50%;
+    align-items: center;
+    place-content: center;
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+}
+
+input[type="radio"]:checked {
+    border-radius: 50%;
+    background-color: #1772FF;
+}
+
+input[type="radio"]:checked::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SubModel button {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+}

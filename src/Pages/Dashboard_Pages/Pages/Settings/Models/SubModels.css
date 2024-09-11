@@ -1,0 +1,112 @@
+.AddTable {
+    color: #666666;
+    height: fit-content;
+    background-color: #ffffff;
+}
+
+.AddTable>.title {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #00000020;
+}
+
+.AddTable>.title span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.AddTable>.title button {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.AddTable form {
+    padding: 15px;
+}
+
+.modal {
+    background-color: #ffffff38;
+}
+
+.modal .modal-dialog {
+    border-radius: 7px;
+    background-color: #ffffff;
+}
+
+.close-button {
+    font-size: 24px;
+    background-color: transparent;
+}
+
+.row .col {
+    text-wrap: nowrap;
+}
+
+.AddTable input[type="radio"] {
+    width: 17px;
+    min-width: 17px;
+    height: 17px;
+    min-height: 17px;
+    display: grid;
+    appearance: none;
+    position: relative;
+    border-radius: 50%;
+    align-items: center;
+    place-content: center;
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+}
+
+.AddTable input[type="radio"]:checked {
+    border-radius: 50%;
+    background-color: #1772FF;
+}
+
+.AddTable input[type="radio"]:checked::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+}
+
+.AddTable label,
+.AddTable .star {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.AddTable label span:not(.star) {
+    color: #0B5ED7;
+}
+
+.AddTable .btnModels button {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+}
+
+.AddTable button.btnMap {
+    font-size: 20px;
+    color: #0B5ED7;
+    border: 1px solid #dee2e6;
+}
+
+.AddTable .ql-editor {
+    min-height: 120px;
+}
+
+.AddTable .data::-webkit-scrollbar {
+    height: 3px;
+}
+
+.AddTable .data::-webkit-scrollbar-thumb {
+    background-color: #1772ff;
+}

@@ -1,0 +1,95 @@
+.formUser {
+    width: 100%;
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formUser .content {
+    width: 500px;
+    border-radius: 7px;
+    border: 1px solid #00000020;
+}
+
+.formUser .btn-color {
+    color: #fff;
+    background-color: #1b3565;
+}
+
+.formUser .btn-color:hover {
+    color: #fff;
+    background-color: #0e1c36;
+}
+
+.formUser form {
+    padding: 30px;
+    background-color: #ebf2fa;
+}
+
+.formUser form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.formUser .changeRoute {
+    text-align: center;
+}
+
+.formUser .changeRoute a {
+    margin-left: 7px;
+}
+
+.roles {
+    gap: 15px;
+    border: none;
+    display: grid;
+    background-color: transparent;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 425px) {
+    .roles {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    }
+
+}
+
+.roles button {
+    display: grid;
+    transition: .2s;
+    color: #ffffff;
+    border-radius: 7px;
+    padding-block: 10px;
+    place-content: center;
+    text-transform: capitalize;
+    background-color: var(--bg);
+
+    &:active {
+        transform: scale(0.97);
+    }
+}
+
+.roles button:first-of-type {
+    background-color: #F97316;
+
+    &:hover {
+        background-color: #e16811;
+    }
+}
+
+.roles button:nth-of-type(2) {
+    background-color: #0284C7;
+
+    &:hover {
+        background-color: #028cd1;
+    }
+}
+
+.roles button:last-of-type {
+    background-color: #A855F7;
+
+    &:hover {
+        background-color: #974ddd;
+    }
+}

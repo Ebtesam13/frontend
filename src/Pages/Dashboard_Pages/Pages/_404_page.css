@@ -1,0 +1,55 @@
+._404_page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100svh;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+
+    & img {
+        width: 100vw;
+    }
+
+    & .section {
+        width: 50vw;
+        height: calc(100svh + 50px);
+        text-align: center;
+        padding-top: 50px;
+        background-position: bottom;
+        background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+        position: absolute;
+        bottom: -150px;
+
+        & .link_404 {
+            transition: .3s;
+            margin-top: 20px;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 7px;
+            background: #1772FF;
+            display: inline-block;
+
+            &:hover {
+                background: #135ecf;
+            }
+        }
+    }
+}
+
+
+@media (max-width:425px) {
+    & .section {
+        & h4 {
+            font-size: 20px;
+        }
+
+        & p,
+        & .link_404 {
+            font-size: 12px;
+        }
+    }
+}

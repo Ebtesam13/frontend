@@ -1,0 +1,131 @@
+.DetailsOrder {
+    padding-bottom: 50px;
+}
+
+.DetailsOrder .sections {
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.DetailsOrder .sections .section {
+    width: calc(50% - 10px);
+    height: fit-content;
+    padding: 15px;
+    border-radius: 7px;
+    background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .DetailsOrder .sections {
+        flex-direction: column;
+    }
+
+    .DetailsOrder .sections .section {
+        width: 100%;
+    }
+}
+
+.DetailsOrder .sections .section .timeLine-details {
+    font-size: 14px;
+}
+
+.DetailsOrder .sections .section .timeLine-details p {
+    gap: 10px;
+    display: flex;
+    padding-bottom: 5px;
+    align-items: center;
+}
+
+.DetailsOrder .sections .section .timeLine-points {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.DetailsOrder .sections .section .timeLine-points .head img {
+    width: 90px;
+    height: 90px;
+}
+
+.DetailsOrder .sections .section .timeLine-points .points .progressBar {
+    padding-inline: 20px;
+    padding-bottom: 50px;
+}
+
+.RSPBprogressBar {
+    height: 5px;
+}
+
+.DetailsOrder .sections .section .timeLine-points .points .parentStep {
+    display: flex;
+    color: #1772FF;
+    font-size: 12px;
+    margin-top: 50px;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.DetailsOrder .sections .section .timeLine-points .points .parentStep .step {
+    width: 50px;
+    font-size: 8px;
+    font-weight: bold;
+    text-wrap: balance;
+}
+
+.DetailsOrder .sections .section .timeLine-points .points .address {
+    margin-top: 20px;
+    text-align: start;
+}
+
+.DetailsOrder .sections .section .order-details {}
+
+.DetailsOrder .sections .section .order-details .cards {}
+
+.DetailsOrder .sections .section .order-details .cards .card {
+    gap: 10px;
+    border: none;
+    font-size: 14px;
+    position: relative;
+    padding-block: 15px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.DetailsOrder .sections .section .order-details .cards .card::after {
+    content: attr(data-id);
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    display: grid;
+    color: #fff;
+    border-radius: 25px;
+    place-content: center;
+    border: 1px solid #fff;
+    background-color: #424242;
+    transform: translateY(-50%);
+}
+
+.DetailsOrder .sections .section .order-details .cards .card:not(:last-child) {
+    border-bottom: 2px solid #00000010;
+}
+
+.DetailsOrder .sections .section .order-details .cards .card:not(:first-child),
+.DetailsOrder .sections .section .order-details .cards .card:not(:last-child) {}
+
+.DetailsOrder .sections .section .order-details .cards .card .card-img {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    border-radius: 7px;
+}
+
+.DetailsOrder .sections .section .order-details {}
+
+span {
+    color: var(--c);
+    padding: 3px 5px;
+    border-radius: 25px;
+    background-color: var(--bg);
+}

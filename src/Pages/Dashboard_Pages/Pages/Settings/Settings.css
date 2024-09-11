@@ -1,0 +1,17 @@
+.Settings .Content .supContent {
+    gap: 20px;
+    display: grid;
+    padding: 0 15px 15px;
+    grid-template-columns: 1fr 3fr;
+}
+
+.Settings .Content .Breadcrumb {
+    margin-top: 50px;
+    padding-block: 15px;
+}
+
+@media (max-width: 768px) {
+    .Settings .Content .supContent {
+        grid-template-columns: 1fr;
+    }
+}

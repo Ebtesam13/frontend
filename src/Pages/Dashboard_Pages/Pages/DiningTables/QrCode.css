@@ -1,0 +1,57 @@
+.qrCodeComponent {
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #ffffff;
+}
+
+.qrCodeComponent .qrCode-head {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media print {
+
+    .qrCodeComponent {
+        width: 100%;
+        height: calc(100svh - 400px);
+        display: flex;
+        align-items: center;
+        transform: scale(2.5);
+        justify-content: center;
+    }
+
+    .Breadcrumb,
+    .qrCodeComponent .qrCode-head {
+        display: none;
+    }
+}
+
+.qrCodeComponent .qrCode-body {
+    text-align: center;
+}
+
+.qrCodeComponent .qrCode-body .logo {
+    width: 170px;
+    margin: auto;
+}
+
+.qrCodeComponent .qrCode-body .qrCode {
+    width: 250px;
+    margin: 20px auto 0;
+}
+
+.qrCodeComponent .qrCode-body .qrCode canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.qrCodeComponent .qrCode-body .qrCode span {
+    font-size: 22px;
+    justify-content: center;
+}
+
+.qrCodeComponent .qrCode-body p {
+    padding: 5px;
+}
