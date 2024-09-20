@@ -247,6 +247,7 @@ export default function Variations() {
                         id="size"
                         value={newSize.size}
                         onChange={(e) => handleChange(e)}
+                        
                         required
                       >
                         {!modalVisible && (
