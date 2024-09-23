@@ -56,6 +56,7 @@ export default function Extras({
     }
   };
 
+// mostafa edit and add filter 
   const handleSearch = () => {
     const { name, cost, category_id, type, status } = extras;
     const filtered = filteredData.filter((item) => {
@@ -63,14 +64,17 @@ export default function Extras({
         (!name || item.name.toLowerCase().includes(name.toLowerCase())) &&
         (!cost || item.cost === parseFloat(cost)) &&
         (category_id === "" || item.category_id === parseInt(category_id)) &&
-        (!type || item.type.toLowerCase().includes(type.toLowerCase())) &&
+        (!type || item.type.toLowerCase() === type.toLowerCase()) && 
         (status === "" || item.status === parseInt(status))
       );
     });
-
+  
     setFilteredData(filtered);
     filtrated(filtered);
   };
+
+
+  
 
   const handleClear = () => {
     setExtras({

@@ -56,6 +56,7 @@ export default function Addons({
     }
   };
 
+  // mostafa edit addons filter
   const handleSearch = () => {
     const { name, cost, category_id, type, status } = addons;
     const filtered = filteredData.filter((item) => {
@@ -63,11 +64,11 @@ export default function Addons({
         (!name || item.name.toLowerCase().includes(name.toLowerCase())) &&
         (!cost || item.cost === parseFloat(cost)) &&
         (category_id === "" || item.category_id === parseInt(category_id)) &&
-        (!type || item.type.toLowerCase().includes(type.toLowerCase())) &&
+        (!type || item.type.toLowerCase() === type.toLowerCase()) && 
         (status === "" || item.status === parseInt(status))
       );
     });
-
+  
     setFilteredData(filtered);
     filtrated(filtered);
   };

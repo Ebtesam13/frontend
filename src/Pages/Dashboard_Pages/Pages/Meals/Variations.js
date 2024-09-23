@@ -65,11 +65,12 @@ export default function Variations() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("newSize.value (before submit):", sizeList[0].value); // Add this line
 
 
     const formData = new FormData();
-    formData.append("size", parseInt(sizeList[0].value)); 
+    // formData.append("size", parseInt(sizeList[0].value)); 
+    formData.append("size", newSize.value);
+
     // if (meal.number_of_pieces !== null && Number.isInteger(meal.number_of_pieces)) {
     //   formData.append("number_of_pieces", meal.number_of_pieces);
     // }   
@@ -271,12 +272,12 @@ export default function Variations() {
                         required
                       >
                      
-{/* 
+
                         {modalVisible && (
                           <option value={meal.size} key="0" selected>
                             {convert(parseInt(meal.size))}
                           </option>
-                        )} */}
+                        )} 
 
                         {sizeList.map((item) => (
                           <option value={item.value} key={item.value}>
