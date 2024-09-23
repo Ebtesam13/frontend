@@ -53,6 +53,7 @@ export default function Meals({ handleModalToggle, data, headers, filtrated }) {
     }
   };
 
+  // mostafa edit to filter 
   const handleSearch = () => {
     const { name, cost, category_id, size, type, status } = meals;
     const filtered = filteredData.filter((item) => {
@@ -61,15 +62,15 @@ export default function Meals({ handleModalToggle, data, headers, filtrated }) {
         (!cost || item.cost === parseFloat(cost)) &&
         (category_id === "" || item.category_id === parseInt(category_id)) &&
         (!size || item.size === parseFloat(size)) &&
-        (!type || item.type.toLowerCase().includes(type.toLowerCase())) &&
+        (!type || item.type.toLowerCase() === type.toLowerCase()) && 
         (status === "" || item.status === parseInt(status))
       );
     });
-
+  
     setFilteredData(filtered);
     filtrated(filtered);
   };
-
+  
   const handleClear = () => {
     setMeals({
       name: "",
