@@ -58,9 +58,11 @@ export default function Addons({
 
   // mostafa edit addons filter
   const handleSearch = () => {
-    const { name, cost, category_id, type, status } = addons;
+    const { name, cost, category_id, type, status ,all_costs} = addons;
     const filtered = filteredData.filter((item) => {
+      const allCostsMatches = cost && item.all_costs.some(c => c === parseFloat(cost));
       return (
+        // allCostsMatches&&
         (!name || item.name.toLowerCase().includes(name.toLowerCase())) &&
         (!cost || item.cost === parseFloat(cost)) &&
         (category_id === "" || item.category_id === parseInt(category_id)) &&

@@ -55,18 +55,18 @@ export default function Meals({ handleModalToggle, data, headers, filtrated }) {
 
   // mostafa edit to filter 
   const handleSearch = () => {
-    const { name, cost, category_id, size, type, status } = meals;
+    const { name,  cost ,category_id, size, type, status ,all_costs    } = meals;
     const filtered = filteredData.filter((item) => {
+      const allCostsMatches = cost && item.all_costs.some(c => c === parseFloat(cost));
       return (
+        allCostsMatches && 
         (!name || item.name.toLowerCase().includes(name.toLowerCase())) &&
-        (!cost || item.cost === parseFloat(cost)) &&
         (category_id === "" || item.category_id === parseInt(category_id)) &&
         (!size || item.size === parseFloat(size)) &&
         (!type || item.type.toLowerCase() === type.toLowerCase()) && 
         (status === "" || item.status === parseInt(status))
       );
-    });
-  
+    });  
     setFilteredData(filtered);
     filtrated(filtered);
   };

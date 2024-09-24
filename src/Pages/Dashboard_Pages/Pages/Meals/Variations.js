@@ -273,11 +273,11 @@ export default function Variations() {
                       >
                      
 
-                        {modalVisible && (
+                         (
                           <option value={meal.size} key="0" selected>
                             {convert(parseInt(meal.size))}
                           </option>
-                        )} 
+                        )
 
                         {sizeList.map((item) => (
                           <option value={item.value} key={item.value}>
