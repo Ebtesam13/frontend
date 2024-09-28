@@ -9,46 +9,79 @@ export default function DetailsItem({ visible, cartItem, modalClose }) {
   const [selectedExtras, setSelectedExtras] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [notes, setNotes] = useState();
+  const x = {...cartItem}
+  console.log(x);
+  
+// console.log(selectedAddons);
+
+  // useEffect(() => {
+  //   if (cartItem) {
+  //     setMealSize(cartItem.meal_size_costs || []);
+  //     setSelectedSize(cartItem.meal_size_costs[0]?.size || null);
+  //   }
+  // }, [cartItem]);
 
   useEffect(() => {
-    if (cartItem) {
-      setMealSize(cartItem.meal_size_costs || []);
-      setSelectedSize(cartItem.meal_size_costs[0]?.size || null);
+    if (cartItem && cartItem.meal_size_costs && cartItem.meal_size_costs.length > 0) {
+      setMealSize(cartItem.meal_size_costs);
+      setSelectedSize(cartItem.meal_size_costs[0].size); 
+    } else {
+      setMealSize([]); 
+      setSelectedSize(null); 
     }
   }, [cartItem]);
-
+  
   const handleSelectItem = (item, type) => {
-    const elementId =
-      type === "addon" ? `addon_${item.id}` : `extra_${item.id}`;
+    const elementId = type === "addon" ? `addon_${item.id}` : `extra_${item.id}`;
+    console.log("Element ID:", elementId);
     const element = document.getElementById(elementId);
-    if (element) element.style.border = "2px solid #0B5ED7";
-
+    console.log("Found Element:", element);  
+    if (element) {
+      console.log("Element found:", element); 
+  
+      const computedStyle = window.getComputedStyle(element);  
+      const borderValue = computedStyle.border; 
+      if (borderValue === "1.77778px solid rgb(11, 94, 215)" || borderValue === "1.77778px solid #0B5ED7") {
+        console.log("Removing border");
+        element.style.border = "none"; 
+      } else { 
+        console.log("Adding border");
+        element.style.border = "2px solid #0B5ED7";
+      }
+    } else {
+      console.error("Element not found for ID:", elementId); 
+    }
+  
     const finalTotal = document.getElementById("finalTotal");
     finalTotal.classList.add("scalable");
     setTimeout(() => finalTotal.classList.remove("scalable"), 125);
-
-    const updateFunction =
-      type === "addon" ? setSelectedAddons : setSelectedExtras;
-
+  
+    const updateFunction = type === "addon" ? setSelectedAddons : setSelectedExtras;
+  
     updateFunction((prev) => {
       if (!Array.isArray(prev)) prev = [];
-
+  
       const exists = prev.find((i) => i.id === item.id);
+  
       if (exists) {
-        return prev.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-        );
+        if (exists.quantity === 1) {
+          return prev.filter((i) => i.id !== item.id);
+        } else {
+          return prev.map((i) =>
+            i.id === item.id ? { ...i, quantity: i.quantity - 1 } : i
+          );
+        }
       } else {
         return [...prev, { ...item, quantity: 1 }];
       }
     });
   };
-
+  
+  
   const qtyAddonsOrExtra = (items, id) => {
     let item = Object(items).length > 0 && items.find((i) => i.id === id);
     return item ? item.quantity : 0;
   };
-
   const updateFinalTotal = useCallback(() => {
     let totalCost = 0;
 
@@ -86,7 +119,6 @@ export default function DetailsItem({ visible, cartItem, modalClose }) {
 
   const handleSizeChange = (size) => {
     setSelectedSize(size);
-
     const finalTotal = document.getElementById("finalTotal");
     finalTotal.classList.add("scalable");
     setTimeout(() => finalTotal.classList.remove("scalable"), 125);
@@ -165,6 +197,7 @@ export default function DetailsItem({ visible, cartItem, modalClose }) {
       : "none";
   };
 
+
   return (
     <div className={`modal-overlay DetailsItem ${visible ? "visible" : ""}`}>
       <div className="modal-container">
@@ -184,8 +217,11 @@ export default function DetailsItem({ visible, cartItem, modalClose }) {
                 <p>{cartItem.description}</p>
                 <b>
                   $
-                  {mealSize.find((size) => size.size === selectedSize)?.cost ||
-                    0}
+                  {
+  mealSize && mealSize.length > 0
+    ? mealSize.find((size) => size.size === selectedSize)?.cost || 0
+    : cartItem.cost
+}
                 </b>
               </div>
             </div>
@@ -226,7 +262,7 @@ export default function DetailsItem({ visible, cartItem, modalClose }) {
             </div>
 
             {Object(cartItem.addons).length > 0 && (
-              <div className="addons">
+              <div className="addons ">
                 <label>Addons</label>
                 <div className="length">
                   {cartItem.addons.map(
@@ -256,7 +292,10 @@ export default function DetailsItem({ visible, cartItem, modalClose }) {
                           <div className="addon-text">
                             <p>{addon.name}</p>
                           </div>
-                        </div>
+                          {/* {Object.keys(selectedAddons).length > 0 && (
+  <div className="bg-info"> mostafa </div>
+)}                       */}
+  </div>
                       )
                   )}
                 </div>

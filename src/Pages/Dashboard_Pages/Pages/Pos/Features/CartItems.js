@@ -16,6 +16,7 @@ export default function CartItems({
   const [discountValue, setDiscountValue] = useState(0);
   const [finalTotal, setFinalTotal] = useState(0);
   const [finalTotalWithDiscount, setFinalTotalWithDiscount] = useState(0);
+console.log(items);
 
   const handleApplyDiscount = useCallback(
     (totalCost) => {
@@ -187,6 +188,7 @@ export default function CartItems({
     });
   };
 
+  
   return (
     <div className="posCartItems" id="posCartItems">
       <div className="CartItems">
@@ -274,14 +276,12 @@ export default function CartItems({
                     ) : (
                       "--"
                     )}
-                    <td>
-                      $
-                      {item.sizes && item.sizes.length > 0
-                        ? (item.sizes[0].cost * item.sizes[0].quantity).toFixed(
-                            2
-                          )
-                        : 0}
-                    </td>
+                 <td>
+  $
+  {item.sizes && item.sizes.length > 0
+    ? (item.sizes[0].cost * item.sizes[0].quantity).toFixed(2)
+    : item.cost.toFixed(2)}
+</td>
                   </tr>
                 ))
               ) : (

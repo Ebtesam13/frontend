@@ -26,19 +26,26 @@ export default function Pos() {
   const [invoiceVisible, setInvoiceVisible] = useState(false);
   const [moreDetailsData, setMoreDetailsData] = useState(null);
   const [modalMoreDetailsVisible, setModalMoreDetailsVisible] = useState(false);
+  const [filteredData, setFilteredData] = useState();
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const fetchMenuItem = useCallback(async () => {
     try {
       const result = await getData("menu");
+      console.log(result);
+      
+      const allItems = [...result.addons, ...result.meals, ...result.extras];
+
       sessionStorage.removeItem("origin_data");
-      sessionStorage.setItem("origin_meals", JSON.stringify(result.meals));
-      setMeals(result.meals);
-      setTotalPages(Math.ceil(result.meals.length / pagination_length));
+      sessionStorage.setItem("origin_meals", JSON.stringify(allItems));
+      setMeals(allItems);
+      setTotalPages(Math.ceil(allItems.length / pagination_length));
     } catch (error) {
       console.error(error.response?.data?.message);
     }
   }, []);
 
+  
   const fetchCategories = useCallback(async () => {
     try {
       const result = await getData("categories");
@@ -80,22 +87,39 @@ export default function Pos() {
     setMeals(originMeals);
   };
 
+  const handleFilter = (newType = filtrationMeal.type, newCategory = selectedCategory) => {
+    const originMeals = JSON.parse(sessionStorage.getItem("origin_meals")) || [];
+    
+    const filteredMeals = originMeals.filter((item) => {
+      const matchesCategory = newCategory === null || item.category_id === newCategory;
+      const matchesType = newType === "" || item.type === newType;
+      
+      return matchesCategory && matchesType;
+    });
+  
+    setMeals(filteredMeals);
+    setTotalPages(Math.ceil(filteredMeals.length / pagination_length));
+    setCurrentPage(1);
+  };
+
   const handleFilterCategories = (id) => {
     const currentItem = document.getElementById(`subMenu_${id}`);
     const allItems = document.querySelectorAll(".subMenu .card");
     const originMeals = JSON.parse(sessionStorage.getItem("origin_meals"));
-
+  
     const isActive = currentItem.classList.contains("current");
     allItems.forEach((card) => card.classList.remove("current"));
-
+  
     if (isActive) {
-      setMeals(originMeals);
+      setSelectedCategory(null);
+      setMeals(originMeals); 
     } else {
       currentItem.classList.add("current");
-      setMeals(originMeals.filter((item) => item.category_id === id));
-      setTotalPages(Math.ceil(meals.length / pagination_length));
+      setSelectedCategory(id);
+      handleFilter(filtrationMeal.type, id); 
     }
   };
+  
 
   const addToCart = (item) => {
     setCartItem(item);
@@ -160,6 +184,29 @@ export default function Pos() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  
+  const [filtrationMeal, setfiltrationMeal] = useState({
+    name: "",
+    cost: "",
+    category_id: "",
+    size: "",
+    type: "",
+    status: "",
+  });
+  
+  const handleChangeV = (e) => {
+    const { id } = e.target;
+    const newType = id === "vegetarian" ? "vegetarian" : "non-vegetarian";
+    
+    setfiltrationMeal((prevData) => ({
+      ...prevData,
+      type: newType,
+    }));
+    
+    handleFilter(newType, selectedCategory); 
+  };
+  
+  
 
   return (
     <div className="Pos">
@@ -215,6 +262,28 @@ export default function Pos() {
                   </div>
                 ))}
               </div>
+      
+              <div className="col col-12 col-sm-6 col-md-6 col-lg-3 mb-3">
+            <label className="mb-2">Type</label>
+            <div className="d-flex gap-2 align-items-center">
+              <input
+                type="radio"
+                name="type"
+                id="vegetarian"
+                checked={filtrationMeal.type === "vegetarian"}
+                onChange={(e) => handleChangeV(e)}
+              />
+              <label htmlFor="vegetarian">Veg</label>
+              <input
+                type="radio"
+                name="type"
+                id="non-vegetarian"
+                checked={filtrationMeal.type === "non-vegetarian"}
+                onChange={(e) => handleChangeV(e)}
+              />
+              <label htmlFor="non-vegetarian">Non Veg</label>
+            </div>
+          </div>
             </div>
           )}
 
@@ -236,25 +305,25 @@ export default function Pos() {
                     <div className="card-body p-2">
                       <p className="fw-bold pb-2">{item.name}</p>
                       <div>
-                        {item.meal_size_costs &&
-                        item.meal_size_costs.length > 0 ? (
-                          <>
-                            <span className="fw-bold itemPrice">
-                              ${item.meal_size_costs[0].cost}
-                            </span>
-                            <button
-                              className="addCartBtn"
-                              onClick={() => addToCart(item)}
-                            >
-                              <FaShoppingBag /> add
-                            </button>
-                          </>
-                        ) : (
-                          <p className="price_not_available">
-                            Price not available
-                          </p>
-                        )}
-                      </div>
+  {item.meal_size_costs && item.meal_size_costs.length > 0 ? (
+    <>
+      <span className="fw-bold itemPrice">${item.meal_size_costs[0].cost}</span>
+      <button className="addCartBtn" onClick={() => addToCart(item)}>
+        <FaShoppingBag /> add
+      </button>
+    </>
+  ) : item.cost ? (
+    <>
+      <span className="fw-bold itemPrice">${item.cost}</span>
+      <button className="addCartBtn" onClick={() => addToCart(item)}>
+        <FaShoppingBag /> add
+      </button>
+    </>
+  ) : (
+    <p className="price_not_available">cost not available</p>
+  )}
+</div>
+
                     </div>
                   </div>
                 ))}
@@ -273,6 +342,8 @@ export default function Pos() {
             <p>There are no items in this category.</p>
           )}
         </div>
+
+       
 
         <button
           className="btn btn-primary openPosCartItems"
