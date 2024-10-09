@@ -86,7 +86,7 @@ export default function DetailsItem({ visible, cartItem, modalClose }) {
     let totalCost = 0;
 
     if (selectedSize !== 0 && quantity !== 0) {
-      totalCost += selectedSize * quantity;
+      totalCost +=mealSize && mealSize.length > 0? mealSize.find((size) => size.size === selectedSize)?.cost * quantity :cartItem.cost * quantity ;
     }
 
     if (Object(selectedAddons).length > 0) {
@@ -241,7 +241,11 @@ export default function DetailsItem({ visible, cartItem, modalClose }) {
             </div>
 
             <div className="sizes">
-              <label>Meal Size Costs</label>
+            {
+  mealSize && mealSize.length > 0
+    ? <label>Meal Size Costs</label>
+    :""
+} 
               <div>
                 {mealSize.map((size) => (
                   <div key={size.id} className="size">
